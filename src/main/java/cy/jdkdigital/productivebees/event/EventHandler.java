@@ -120,6 +120,8 @@ public class EventHandler
                 case "upgrade_productivity_2" -> ProductiveBeesConfig.UPGRADES.productivityMultiplier2.get();
                 case "upgrade_productivity_3" -> ProductiveBeesConfig.UPGRADES.productivityMultiplier3.get();
                 case "upgrade_productivity_4" -> ProductiveBeesConfig.UPGRADES.productivityMultiplier4.get();
+                case "upgrade_productivity_5" -> ProductiveBeesConfig.UPGRADES.productivityMultiplier5.get();
+                case "upgrade_productivity_6" -> ProductiveBeesConfig.UPGRADES.productivityMultiplier6.get();
                 case "upgrade_gene_sampler" -> ProductiveBeesConfig.UPGRADES.samplerChance.get();
                 case "upgrade_stability" -> ProductiveBeesConfig.UPGRADES.stabilityChanceIncrease.get();
                 default -> 0.0F;

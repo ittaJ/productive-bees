@@ -106,7 +106,9 @@ public class AdvancedBeehiveBlockEntity extends AdvancedBeehiveBlockEntityAbstra
             LibItems.UPGRADE_PRODUCTIVITY.get(),
             LibItems.UPGRADE_PRODUCTIVITY_2.get(),
             LibItems.UPGRADE_PRODUCTIVITY_3.get(),
-            LibItems.UPGRADE_PRODUCTIVITY_4.get()
+            LibItems.UPGRADE_PRODUCTIVITY_4.get(),
+            LibItems.UPGRADE_PRODUCTIVITY_5.get(),
+            LibItems.UPGRADE_PRODUCTIVITY_6.get()
     ));
 
     public AdvancedBeehiveBlockEntity(BlockPos pos, BlockState state) {
@@ -146,7 +148,9 @@ public class AdvancedBeehiveBlockEntity extends AdvancedBeehiveBlockEntityAbstra
         return ProductiveBeesConfig.BEES.forceBeeSimulation.get() || (ProductiveBeesConfig.BEES.allowBeeSimulation.get() && (
                 getUpgradeCount(LibItems.UPGRADE_SIMULATOR.get()) > 0 ||
                 getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_3.get()) > 0 ||
-                getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get()) > 0
+                getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get()) > 0 ||
+                getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_5.get()) > 0 ||
+                getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_6.get()) > 0
         ));
     }
 
@@ -290,9 +294,12 @@ public class AdvancedBeehiveBlockEntity extends AdvancedBeehiveBlockEntityAbstra
                 double upgradeMod = 1 + ProductiveBeesConfig.UPGRADES.productivityMultiplier.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY.get())
                                     + ProductiveBeesConfig.UPGRADES.productivityMultiplier2.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_2.get())
                                     + ProductiveBeesConfig.UPGRADES.productivityMultiplier3.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_3.get())
-                                    + ProductiveBeesConfig.UPGRADES.productivityMultiplier4.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get());
+                                    + ProductiveBeesConfig.UPGRADES.productivityMultiplier4.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get())
+                                    + ProductiveBeesConfig.UPGRADES.productivityMultiplier5.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_5.get())
+                                    + ProductiveBeesConfig.UPGRADES.productivityMultiplier6.get() * getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_6.get());
 
-                var hasBlockUpgrade = (getUpgradeCount(LibItems.UPGRADE_BLOCK.get()) + getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get())) > 0;
+                var hasBlockUpgrade = (getUpgradeCount(LibItems.UPGRADE_BLOCK.get()) + getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_4.get())
+                        + getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_5.get()) + getUpgradeCount(LibItems.UPGRADE_PRODUCTIVITY_6.get())) > 0;
                 BeeHelper.getBeeProduce(level, beeEntity, hasBlockUpgrade, upgradeMod).forEach((stackIn) -> {
                     ItemStack stack = stackIn.copy();
                     if (!stack.isEmpty() && inventoryHandler instanceof InventoryHandlerHelper.BlockEntityItemStackHandler itemStackHandler) {

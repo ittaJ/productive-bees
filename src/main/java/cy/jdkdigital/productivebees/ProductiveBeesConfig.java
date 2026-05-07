@@ -338,6 +338,8 @@ public class ProductiveBeesConfig
         public final ModConfigSpec.DoubleValue productivityMultiplier2;
         public final ModConfigSpec.DoubleValue productivityMultiplier3;
         public final ModConfigSpec.DoubleValue productivityMultiplier4;
+        public final ModConfigSpec.DoubleValue productivityMultiplier5;
+        public final ModConfigSpec.DoubleValue productivityMultiplier6;
         public final ModConfigSpec.DoubleValue breedingChance;
         public final ModConfigSpec.IntValue breedingMaxNearbyEntities;
         public final ModConfigSpec.DoubleValue samplerChance;
@@ -361,6 +363,12 @@ public class ProductiveBeesConfig
             productivityMultiplier4 = builder
                     .comment("Multiplier per productivity omega upgrade installed in the hive.")
                     .defineInRange("productivityMultiplier4", 2.6, 1, Integer.MAX_VALUE);
+            productivityMultiplier5 = builder
+                    .comment("Multiplier per productivity upsilon upgrade installed in the hive.")
+                    .defineInRange("productivityMultiplier5", 3.8, 1, Integer.MAX_VALUE);
+            productivityMultiplier6 = builder
+                    .comment("Multiplier per productivity infinite delta upgrade installed in the hive.")
+                    .defineInRange("productivityMultiplier6", 5.2, 1, Integer.MAX_VALUE);
             breedingChance = builder
                     .comment("Chance for a bee to produce an offspring after a hive visit.")
                     .defineInRange("breedingChance", 0.05, 0, 1);
